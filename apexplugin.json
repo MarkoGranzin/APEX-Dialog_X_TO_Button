@@ -1,0 +1,34 @@
+{
+  "name" : "APEX Dialog X to button",
+  "version" : "1.0.2",
+  "description" : "This plug in replaces the functionalty of the Cancel(X) in Dialogs with an Click on an configurable button.",
+  "keywords" : ["oracle","apex","plugin","dynamic action", "cancel"],
+  "homepage" : "https://github.com/MarkoGranzin/APEX-Dialog_X_TO_Button",
+  "bugs" : {
+    "url" : "https://github.com/MarkoGranzin/APEX-Dialog_X_TO_Button/issues",
+    "email" : "marko.granzin@gmx.de"
+  },
+  "license" : "MIT",
+  "author" : {
+    "name" : "Marko Granzin",
+    "email" : "marko.granzin@gmx.de",
+    "donationUrl" : "https://www.paypal.me/Medinchen"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/MarkoGranzin/APEX-Dialog_X_TO_Button
+  },
+ "oracle" : {
+    "versions" : ["11.2.0.1","12.1.0.1","12.2.0.1"],
+    "apex" : {
+      "versions" : ["5.1.4","18.1.0","18.2.0","19.1.0","19.2.0"],
+      "plugin" : {
+        "internalName" : "APEX_DIALOG_X_TO_BUTTON",
+        "type" : "dynamic action",
+        "demo" : "https://apex.oracle.com/pls/apex/f?p=24068",
+        "previewImage" : "https://raw.githubusercontent.com/MarkoGranzin/Dialog_X_TO_Button/master/screenshot.gif"
+      }
+    }
+  }
+}
+© 2020 GitHub, Inc.
