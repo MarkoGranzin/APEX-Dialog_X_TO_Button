@@ -1,6 +1,6 @@
 {
   "name" : "APEX Dialog X to button",
-  "version" : "1.0.2",
+  "version" : "1.0.0",
   "description" : "This plug in replaces the functionalty of the Cancel(X) in Dialogs with an Click on an configurable button.",
   "keywords" : ["oracle","apex","plugin","dynamic action", "cancel"],
   "homepage" : "https://github.com/MarkoGranzin/APEX-Dialog_X_TO_Button",
