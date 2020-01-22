@@ -6,7 +6,7 @@ whenever sqlerror exit sql.sqlcode rollback
 -- ORACLE Application Express (APEX) export file
 --
 -- You should run the script connected to SQL*Plus as the Oracle user
--- APEX_190100 or as the owner (parsing schema) of the application.
+-- APEX_190200 or as the owner (parsing schema) of the application.
 --
 -- NOTE: Calls to apex_application_install override the defaults below.
 --
@@ -15,16 +15,39 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2016.08.24'
 ,p_release=>'5.1.3.00.05'
-,p_default_workspace_id=>100000
-,p_default_application_id=>104
+,p_default_workspace_id=>18626159959134733651
+,p_default_application_id=>59820
+,p_default_id_offset=>20788415747469946654
 ,p_default_owner=>'MEDINCHEN'
 );
+end;
+/
+ 
+prompt APPLICATION 59820 - Demo App
+--
+-- Application Export:
+--   Application:     59820
+--   Name:            Demo App
+--   Date and Time:   16:32 Mittwoch Januar 22, 2020
+--   Exported By:     MARKO.GRANZIN@GMX.DE
+--   Flashback:       0
+--   Export Type:     Component Export
+--   Manifest
+--     PLUGIN: 20795685339880246746
+--   Manifest End
+--   Version:         19.2.0.00.18
+--   Instance ID:     63113759365424
+--
+
+begin
+  -- replace components
+  wwv_flow_api.g_mode := 'REPLACE';
 end;
 /
 prompt --application/shared_components/plugins/dynamic_action/apex_dialog_x_to_button
 begin
 wwv_flow_api.create_plugin(
- p_id=>wwv_flow_api.id(7269592410300092)
+ p_id=>wwv_flow_api.id(20795685339880246746)
 ,p_plugin_type=>'DYNAMIC ACTION'
 ,p_name=>'APEX_DIALOG_X_TO_BUTTON'
 ,p_display_name=>'APEX Dialog X to Button'
@@ -38,17 +61,11 @@ wwv_flow_api.create_plugin(
 '    VR_RESULT         APEX_PLUGIN.T_DYNAMIC_ACTION_RENDER_RESULT;',
 'BEGIN',
 '    VR_RESULT.JAVASCRIPT_FUNCTION   := ''function () {  ',
-'    //get the button',
 '    var button = parent.$(".ui-dialog-titlebar-close");',
 '    var btn = "#" + $(this)[0].action.affectedButtonId;',
-'    //remove the behavior',
-'    button.unbind(); ',
-'    ',
-'    //put another behavior to the button',
-'    button.on("click", function() {',
-'    console.log(btn);',
-'       $(btn).click();',
-'    });}'';',
+'    button.unbind();',
+'    button.on("click", function() {$(btn).click();});',
+'    }'';',
 '',
 '    RETURN VR_RESULT;',
 'END;'))
@@ -73,8 +90,9 @@ wwv_flow_api.create_plugin(
 );
 end;
 /
+prompt --application/end_environment
 begin
-wwv_flow_api.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false), p_is_component_import => true);
+wwv_flow_api.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false));
 commit;
 end;
 /
